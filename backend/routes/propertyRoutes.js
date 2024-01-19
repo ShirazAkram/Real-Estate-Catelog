@@ -3,7 +3,7 @@ const router = express.Router();
 const Property = require('../models/property');
 
 
-router.get('/properties', async (req, res) => {
+router.get('/add-property', async (req, res) => {
   try {
     const properties = await Property.find();
     res.json(properties);
@@ -13,18 +13,20 @@ router.get('/properties', async (req, res) => {
   }
 });
 
-router.post('/properties', async (req, res) => {
-  const { title, description, price, location, bedrooms, bathrooms, imageUrls } = req.body;
+router.post('/add-property', async (req, res) => {
+  const { PPDID, imageUrls, Property, Contact, Area, Views, Status, DaysLeft, Action } = req.body;
 
   try {
     const newProperty = new Property({
-      title,
-      description,
-      price,
-      location,
-      bedrooms,
-      bathrooms,
+      PPDID,
       imageUrls,
+      Property,
+      Contact,
+      Area,
+      Views,
+      Status,
+      DaysLeft,
+      Action
     });
 
     const savedProperty = await newProperty.save();
@@ -35,7 +37,7 @@ router.post('/properties', async (req, res) => {
   }
 });
 
-router.get('/properties/:id', async (req, res) => {
+router.get('/add-property/:id', async (req, res) => {
   const propertyId = req.params.id;
 
   try {

@@ -1,34 +1,43 @@
 const mongoose = require('mongoose');
 
 const propertySchema = new mongoose.Schema({
-  title: {
+  PPDID: {
     type: String,
     required: true,
   },
-  description: {
+  ImageUrls: {
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-  },
-  location: {
+  Property: {
     type: String,
     required: true,
   },
-  bedrooms: {
+  Contact: {
     type: Number,
     required: true,
   },
-  bathrooms: {
+  Area: {
     type: Number,
     required: true,
   },
-  imageUrls: {
-    type: [String],
+  Views: {
+    type: Number,
     required: true,
   },
+  Status: {
+    type: String,
+    required: true,
+  },
+  DaysLeft: {
+    type: Number,
+    required: true,
+  },
+  Action: {
+    type: String,
+    required: true,
+  },
+  
 });
 
 const Property = mongoose.model('Property', propertySchema);
